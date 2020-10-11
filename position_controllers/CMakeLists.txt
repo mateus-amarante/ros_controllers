@@ -36,6 +36,34 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 
 #############
+## Testing ##
+#############
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  find_package(controller_manager REQUIRED)
+  find_package(std_msgs REQUIRED)
+  find_package(sensor_msgs REQUIRED)
+  find_package(roscpp REQUIRED)
+
+  include_directories(${controller_manager_INCLUDE_DIRS})
+  include_directories(${std_msgs_INCLUDE_DIRS})
+  include_directories(${sensor_msgs_INCLUDE_DIRS})
+  include_directories(${roscpp_INCLUDE_DIRS})
+
+  add_executable(dummy_robot test/dummy_robot.cpp)
+  target_link_libraries(dummy_robot ${catkin_LIBRARIES} ${controller_manager_LIBRARIES} ${roscpp_LIBRARIES})
+
+  add_rostest_gtest(position_controllers_test
+    test/position_controllers.test
+    test/position_controllers_test.cpp
+  )
+  target_link_libraries(position_controllers_test ${catkin_LIBRARIES} ${roscpp_LIBRARIES})
+
+endif()
+
+
+#############
 ## Install ##
 #############
 

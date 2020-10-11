@@ -1,0 +1,11 @@
+<launch>
+  <!-- Load controllers configuration -->
+  <rosparam command="load" file="$(find position_controllers)/test/dummy_robot_controllers.yaml" />
+
+  <!-- RobotHW & Controller Manager -->
+  <node name="dummy_robot" pkg="position_controllers" type="dummy_robot"/>
+
+  <!-- Start controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" args="joint_state_controller position_controller group_position_controller"/>
+
+</launch>

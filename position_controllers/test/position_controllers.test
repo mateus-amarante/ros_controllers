@@ -1,0 +1,8 @@
+<launch>
+  <!-- Robot hardware -->
+  <include file="$(find position_controllers)/test/dummy_robot.launch"/>
+
+  <!-- Test -->
+  <test test-name="position_controllers_test" pkg="position_controllers" type="position_controllers_test"/>
+
+</launch>

@@ -1,0 +1,11 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+position_controller:
+    type: position_controllers/JointPositionController
+    joint: 'joint0'
+
+group_position_controller:
+    type: position_controllers/JointGroupPositionController
+    joints: ['joint1', 'joint2']

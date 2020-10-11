@@ -32,6 +32,13 @@
   <exec_depend>controller_interface</exec_depend> 
   <exec_depend>rostime</exec_depend> 
 
+  <test_depend>controller_manager</test_depend> 
+  <test_depend>joint_state_controller</test_depend> 
+  <test_depend>sensor_msgs</test_depend> 
+  <test_depend>std_msgs</test_depend> 
+  <test_depend>roscpp</test_depend> 
+  <test_depend>rostest</test_depend> 
+
   <export>
     <controller_interface plugin="${prefix}/position_controllers_plugins.xml"/>
   </export>
